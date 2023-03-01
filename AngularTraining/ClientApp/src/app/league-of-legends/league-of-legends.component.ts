@@ -19,6 +19,15 @@ export class LeagueOfLegendsComponent implements OnInit {
         console.log(err)
       }
     })
+
+    //this.apiService.getChampions().subscribe({
+    //  next: result => {
+    //    console.log(result)
+    //  },
+    //  error: err => {
+    //    console.log(err)
+    //  }
+    //})
   }
 
 }
