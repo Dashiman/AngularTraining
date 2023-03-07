@@ -21,7 +21,7 @@ import { TokenInterceptor } from './token-incerceptor.service';
     CounterComponent,
     FetchDataComponent,
     LeagueOfLegendsComponent,
-    WorldOfTanksComponent
+    WorldOfTanksComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

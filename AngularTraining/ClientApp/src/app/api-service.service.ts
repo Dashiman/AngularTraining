@@ -18,4 +18,8 @@ export class ApiService {
   getSummoner(baseUrl: string, name: string): Observable<any>{
     return this.http.get(this.corsProxy+baseUrl + "/lol/summoner/v4/summoners/by-name/" + name).pipe(map(res => { return res as any }));
   }
+
+  getChampions():Observable<any>{
+    return this.http.get("https://ddragon.leagueoflegends.com/cdn/13.4.1/data/en_US/champion.json").pipe(map(res => { return res as any }));
+  }
 }

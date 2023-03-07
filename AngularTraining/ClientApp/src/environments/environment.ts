@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  lolApiKey:"RGAPI-02af8ed2-f809-4e37-ac9f-37da0a52d612",
+  lolApiKey:"RGAPI-a099ac38-0672-4dd8-af06-4821a0915de4",
   wotApiKey:""
 };
 
