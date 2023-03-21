@@ -4,9 +4,49 @@
       <div class="card">
         <div class="card-header">League of Legends</div>
         <div class="card-body">
+          <form [formGroup]="form">
+            <div class="col-6">
+
+              <input class="form-control" type="text" id="name" name="name" formControlName="name">
+              <div *ngIf="name.invalid && (name.dirty || name.touched)"
+                   class="alert alert-danger">
+
+                <div *ngIf="name.errors?.['required']">
+                  Name is required.
+                </div>
+                <div *ngIf="name.errors?.['invalidName']">
+                  Nieprawidłowa nazwa
+                </div>
+              </div>
+            </div>
+          </form>
+          <div class="row">
+            <div class="col-12">
+              <table class="table table-striped">
+                <tr>
+                  <td>Name</td>
+                  <td>Descrption</td>
+                  <td>Title</td>
+                </tr>
+                <tr *ngFor="let c of champions">
+                  <td>
+                    {{c.name}}
+                  </td>
+                  <td>
+                    {{c.blurb}}
+                  </td>
+                  <td>
+                    {{c.title}}
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
 
   </div>
 </div>
+

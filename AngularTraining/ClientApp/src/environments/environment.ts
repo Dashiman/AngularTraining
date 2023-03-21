@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  lolApiKey:"", // valid only for hour sooo ;p
+  lolApiKey:"RGAPI-fe2244c9-2bbc-4033-972d-fb7fafe9fa16", // valid only for hour sooo ;p
   wotApiKey:""
 };
 
