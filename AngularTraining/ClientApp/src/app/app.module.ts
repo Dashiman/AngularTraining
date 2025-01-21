@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
@@ -13,33 +13,27 @@ import { LeagueOfLegendsComponent } from './league-of-legends/league-of-legends.
 import { WorldOfTanksComponent } from './world-of-tanks/world-of-tanks.component';
 import { TokenInterceptor } from './token-incerceptor.service';
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    NavMenuComponent,
-    HomeComponent,
-    CounterComponent,
-    FetchDataComponent,
-    LeagueOfLegendsComponent,
-    WorldOfTanksComponent,
-  ],
-  imports: [
-    BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
-    HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule,
-    RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'counter', component: CounterComponent },
-      { path: 'fetch-data', component: FetchDataComponent },
-      { path: 'wot', component: WorldOfTanksComponent },
-      { path: 'lol', component: LeagueOfLegendsComponent },
-    ])
-  ],
-  providers: [
-    //zarejestrowany interceptor dla api
-    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
-  ],
-  bootstrap: [AppComponent]
-})
+@NgModule({ declarations: [
+        AppComponent,
+        NavMenuComponent,
+        HomeComponent,
+        CounterComponent,
+        FetchDataComponent,
+        LeagueOfLegendsComponent,
+        WorldOfTanksComponent,
+    ],
+    bootstrap: [AppComponent], imports: [BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
+        FormsModule,
+        ReactiveFormsModule,
+        RouterModule.forRoot([
+            { path: '', component: HomeComponent, pathMatch: 'full' },
+            { path: 'counter', component: CounterComponent },
+            { path: 'fetch-data', component: FetchDataComponent },
+            { path: 'wot', component: WorldOfTanksComponent },
+            { path: 'lol', component: LeagueOfLegendsComponent },
+        ])], providers: [
+        //zarejestrowany interceptor dla api
+        { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+        provideHttpClient(withInterceptorsFromDi()),
+    ] })
 export class AppModule { }
