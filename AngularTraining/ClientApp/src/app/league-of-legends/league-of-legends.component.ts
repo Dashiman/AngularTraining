@@ -5,6 +5,7 @@ import { ApiService } from '../api-service.service';
 
 @Component({
   selector: 'app-league-of-legends',
+  standalone:false,
   templateUrl: './league-of-legends.component.html',
   styleUrls: ['./league-of-legends.component.css']
 })

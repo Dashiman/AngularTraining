@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgModule } from '@angular/core';
 import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
@@ -12,6 +12,7 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { LeagueOfLegendsComponent } from './league-of-legends/league-of-legends.component';
 import { WorldOfTanksComponent } from './world-of-tanks/world-of-tanks.component';
 import { TokenInterceptor } from './token-incerceptor.service';
+import { CommonModule } from '@angular/common';
 
 @NgModule({ declarations: [
         AppComponent,
@@ -22,7 +23,9 @@ import { TokenInterceptor } from './token-incerceptor.service';
         LeagueOfLegendsComponent,
         WorldOfTanksComponent,
     ],
-    bootstrap: [AppComponent], imports: [BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
+  bootstrap: [AppComponent], imports: [
+    CommonModule,
+    BrowserModule,
         FormsModule,
         ReactiveFormsModule,
         RouterModule.forRoot([
