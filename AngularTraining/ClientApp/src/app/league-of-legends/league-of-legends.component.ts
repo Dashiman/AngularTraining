@@ -21,7 +21,6 @@ export class LeagueOfLegendsComponent implements OnInit {
   get name() { return this.form.get('name'); }
   ngOnInit(): void {
     forkJoin([
-      // this.apiService.getSummoner(this.baseUrl, "Nitro"),
       this.apiService.getTanks(),
       this.apiService.getChampions()
     ]
